@@ -46,26 +46,16 @@ end
 function Library:CreateWindow()
     local WindowInit = {}
 
-    local Screen
-
-    local succ, err = pcall(function()
-        local Folder = game:GetObjects("rbxassetid://12619894162")[1]
-        for _, v in ipairs(Folder:GetChildren()) do
-            rconsoleprint(v.Name)
-        end
-        rconsoleprint("\n")
-        local Screen = Folder.Panel:Clone()
-        rconsoleprint(Screen.Name)
-        rconsoleprint("\n")
-        if syn and syn.protect_gui then
-            syn.protect_gui(Screen)
-            Screen.Parent = CoreGui
-        elseif gethui then
-            Screen.Parent = gethui()
-        else
-            Screen.Parent = CoreGui
-        end
-    end)
+    local Folder = game:GetObjects("rbxassetid://12619894162")[1]
+    local Screen = Folder:FindFirstChild("Panel"):Clone()
+    if syn and syn.protect_gui then
+        syn.protect_gui(Screen)
+        Screen.Parent = CoreGui
+    elseif gethui then
+        Screen.Parent = gethui()
+    else
+        Screen.Parent = CoreGui
+    end
 
     if not succ then
         rconsoleprint(err)
