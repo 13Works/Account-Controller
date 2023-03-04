@@ -62,9 +62,12 @@ function Library:CreateWindow()
             Screen.Parent = CoreGui
         end
     end)
+
     if not succ then
-        print(err)
+        rconsoleprint(err)
+        rconsoleprint("\n")
     end
+
     print(Screen.Name)
     local Main = Screen.Main
 
