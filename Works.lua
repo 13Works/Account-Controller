@@ -25,12 +25,6 @@ local function Save()
     writefile("ReQiu Helper//" .. Name, HttpService:JSONEncode(Settings))
 end
 
-local Neon = {}
-local Spec = {}
-Settings.Key = {}
-local PetID
-local Pet
-local PetsShow = {}
 local List = {}
 local JoJo = {}
 local GGO = {}

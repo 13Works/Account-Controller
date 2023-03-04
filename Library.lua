@@ -45,16 +45,25 @@ end
 
 function Library:CreateWindow()
     local WindowInit = {}
-    local Folder = game:GetObjects("rbxassetid://12619894162")[1]
-    local Screen = Folder.Panel:Clone()
-    if syn and syn.protect_gui then
-        syn.protect_gui(Screen)
-        Screen.Parent = CoreGui
-    elseif gethui then
-        Screen.Parent = gethui()
-    else
-        Screen.Parent = CoreGui
+
+    local Screen
+
+    local succ, err = pcall(function()
+        local Folder = game:GetObjects("rbxassetid://12619894162")[1]
+        local Screen = Folder.Panel:Clone()
+        if syn and syn.protect_gui then
+            syn.protect_gui(Screen)
+            Screen.Parent = CoreGui
+        elseif gethui then
+            Screen.Parent = gethui()
+        else
+            Screen.Parent = CoreGui
+        end
+    end)
+    if not succ then
+        print(err)
     end
+
     local Main = Screen.Main
 
     Screen.Name = "ReQiuYTL Hub Helper"
