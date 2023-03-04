@@ -63,7 +63,7 @@ function Library:CreateWindow()
     if not succ then
         print(err)
     end
-
+    print(Screen.Name)
     local Main = Screen.Main
 
     Screen.Name = "ReQiuYTL Hub Helper"
