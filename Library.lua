@@ -220,7 +220,7 @@ function Library:CreateWindow()
             return newItem
         end
 
-        return newTab, newPage
+        return pageInIt
     end
     return WindowInit
 end
