@@ -50,10 +50,12 @@ function Library:CreateWindow()
 
     local succ, err = pcall(function()
         local Folder = game:GetObjects("rbxassetid://12619894162")[1]
-        rconsoleprint(table.unpack(Folder:GetChildren()))
+        for _, v in ipairs(Folder:GetChildren()) do
+            rconsoleprint(v.Name)
+        end
         rconsoleprint("\n")
         local Screen = Folder.Panel:Clone()
-        rconsoleprint(Screen)
+        rconsoleprint(Screen.Name)
         rconsoleprint("\n")
         if syn and syn.protect_gui then
             syn.protect_gui(Screen)
