@@ -100,6 +100,7 @@ function Library:CreateWindow()
 
         local newPage = Elements.Template:Clone()
         newPage.Parent = Elements
+        newPage.Name = name
 
         local pageButton = newTab.Interact
 
