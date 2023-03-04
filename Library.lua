@@ -73,7 +73,7 @@ function Library:CreateWindow()
     Main.Visible = true
     Loading:Destroy()
 
-    local Topbar = Main.TopBar
+    local Topbar = Main.Topbar
     Topbar.Title.Text = "ReQiuYTL Hub Helper"
 
     local TabList = Main.TabList
