@@ -82,16 +82,6 @@ function Library:CreateWindow()
 
     MakeDraggable(Topbar, Main)
 
-    local itemTemplates = {}
-    for _, item in ipairs(Elements.Template:GetChildren()) do
-        if item:IsA("GuiObject") then
-            table.insert(itemTemplates, item)
-            rconsoleprint(item.Name)
-            rconsoleprint("\n")
-            Elements.Template[item.Name]:Destroy()
-        end
-    end
-
     function WindowInit:createTab(name, icon)
         local pageInIt = {}
         local newTab = TabList.Template:Clone()
@@ -122,7 +112,7 @@ function Library:CreateWindow()
         pageButton.MouseButton1Click:Connect(switchPage)
 
         function pageInIt:createButton(name, callback)
-            local newItem = itemTemplates["Button"]
+            local newItem = Elements.Template["Button"]:Clone()
             newItem.Name = name
             newItem.Title.Text = name
             newItem.Parent = newPage
@@ -132,7 +122,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createDropdown(name, List, callback)
-            local newItem = itemTemplates["Dropdown"]
+            local newItem = Elements.Template["Dropdown"]:Clone()
 
             local function createListItem(item_name)
                 local ListItem = newItem.List.Template:Clone()
@@ -149,7 +139,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createInput(name, placeholder)
-            local newItem = itemTemplates["Input"]
+            local newItem = Elements.Template["Input"]:Clone()
             newItem.Name = name
             newItem.Title.Text = name
             newItem.InputFrame.TextBox.PlaceholderText = placeholder
@@ -159,7 +149,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createLabel(name, title)
-            local newItem = itemTemplates["Label"]
+            local newItem = Elements.Template["Label"]:Clone()
             newItem.Name = name
             newItem.Title.Text = title
             newItem.Parent = newPage
@@ -168,7 +158,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createParagraph(name, title, desc)
-            local newItem = itemTemplates["Paragraph"]
+            local newItem = Elements.Template["Paragraph"]:Clone()
             newItem.Name = name
             newItem.Title.Text = title
             newItem.Description.Text = desc
@@ -178,14 +168,14 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createSpacing()
-            local newItem = itemTemplates["SectionSpacing"]
+            local newItem = Elements.Template["SectionSpacing"]:Clone()
             newItem.Parent = newPage
             newItem.Visible = true
             return newItem
         end
 
         function pageInIt:createTitle(name)
-            local newItem = itemTemplates["SectionSpacing"]
+            local newItem = Elements.Template["SectionSpacing"]:Clone()
             newItem.Parent = newPage
             newItem.Name = name
             newItem.Title.Text = name
@@ -194,7 +184,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createToggle(name, callback, toggle)
-            local newItem = itemTemplates["Toggle"]
+            local newItem = Elements.Template["Toggle"]:Clone()
             newItem.Parent = newPage
             newItem.Name = name
             newItem.Title.Text = name
