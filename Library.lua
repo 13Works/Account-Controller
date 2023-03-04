@@ -72,6 +72,8 @@ function Library:CreateWindow()
     Loading.Text.Title.Text = "ReQiuYTL Hub Helper"
     Loading.Text.Description.Text = "by Bones"
     Loading.Text.Version.Text = "v0.01"
+    Loading.ZIndex = 2
+    Loading.Visible = true
     wait(3)
 
     Loading:TweenSize(Main.Size, "Out", "Quint", 0.8)

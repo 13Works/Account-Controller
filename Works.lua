@@ -74,7 +74,7 @@ local succ, err = pcall(function()
     local Library = loadstring(game:HttpGet(
         "https://raw.githubusercontent.com/13Works/Account-Controller/main/Library.lua"))()
     local Window = Library:CreateWindow()
-
+    print("Loaded Library")
 end)
 
 if not succ then
