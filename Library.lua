@@ -111,11 +111,7 @@ function Library:CreateWindow()
         switchPage()
         pageButton.MouseButton1Click:Connect(switchPage)
 
-        for _, template in ipairs(Elements.Template:GetChildren()) do
-            if template:IsA("Frame") then
-                template.Visible = false
-            end
-        end
+        Elements.Template.Visible = false
 
         function pageInIt:createButton(name, callback)
             local newItem = Elements.Template["Button"]:Clone()
