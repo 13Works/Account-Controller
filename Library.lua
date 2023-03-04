@@ -4,7 +4,6 @@ local Library = {
 
 local RunService = game:GetService("RunService")
 local HttpService = game:GetService("HttpService")
-local TweenService = game:GetService("TweenService")
 local tInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
 local UserInputService = game:GetService("UserInputService")
 
