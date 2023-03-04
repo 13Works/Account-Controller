@@ -84,8 +84,10 @@ function Library:CreateWindow()
 
     local itemTemplates = {}
     for _, item in ipairs(Elements.Template:GetChildren()) do
-        if item:IsA("Frame") then
+        if item:IsA("GuiObject") then
             table.insert(itemTemplates, item)
+            rconsoleprint(item.Name)
+            rconsoleprint("\n")
             Elements.Template[item.Name]:Destroy()
         end
     end
@@ -106,7 +108,7 @@ function Library:CreateWindow()
 
         local function switchPage()
             for _, page in ipairs(Elements:GetChildren()) do
-                if page:IsA("Frame") then
+                if page:IsA("ScrollingFrame") then
                     page.Visible = false
                     rconsoleprint("Closed " .. newPage.Name .. " page")
                     rconsoleprint("\n")
