@@ -115,7 +115,7 @@ function Library:CreateWindow()
             rconsoleprint("Switched to " .. newPage.Name .. " page")
             rconsoleprint("\n")
         end
-
+        switchPage()
         pageButton.MouseButton1Click:Connect(switchPage)
 
         function pageInIt:createButton(name, callback)
