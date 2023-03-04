@@ -80,5 +80,7 @@ local succ, err = pcall(function()
 end)
 
 if not succ then
-    print(err)
+    rconsoleprint(err)
+    rconsoleprint("\n")
 end
+
