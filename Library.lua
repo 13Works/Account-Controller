@@ -180,20 +180,17 @@ function Library:CreateWindow()
             newItem.Title.Text = name
             newItem.Visible = true
             local Toggle = toggle
+            local indicator = newItem.Switch.Indicator
             local function switch(status)
                 if not status then
-                    TweenService:Create(newItem.Switch.Indicator, tInfo, {
-                        Position = UDim2.fromScale(1, 0, 0.5, 0),
-                        AnchorPoint = Vector2.new(1, 0.5),
-                        BackgroundColor3 = Color3.fromRGB(30, 184, 255)
-                    }):Play()
+                    indicator.Position = UDim2.fromScale(1, 0, 0.5, 0)
+                    indicator.AnchorPoint = Vector2.new(1, 0.5)
+                    indicator.BackgroundColor3 = Color3.fromRGB(30, 184, 255)
                     Toggle = true
                 else
-                    TweenService:Create(newItem.Switch.Indicator, tInfo, {
-                        Position = UDim2.fromScale(0, 0, 0.5, 0),
-                        AnchorPoint = Vector2.new(0, 0.5),
-                        BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-                    }):Play()
+                    indicator.Position = UDim2.fromScale(0, 0, 0.5, 0)
+                    indicator.AnchorPoint = Vector2.new(0, 0.5)
+                    indicator.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
                     Toggle = false
                 end
             end
