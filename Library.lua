@@ -69,16 +69,10 @@ function Library:CreateWindow()
     Loading.Visible = true
     wait(3)
 
-    Loading:TweenSize(Main.Size, "Out", "Quint", 0.8)
     wait(0.8)
 
     Main.Visible = true
-    TweenService:Create(Loading.Text, tInfo, {
-        BackgroundTransparency = 1
-    }):Play()
-    TweenService:Create(Loading, tInfo, {
-        BackgroundTransparency = 1
-    }):Play()
+    Loading:Destroy()
 
     local Topbar = Main.TopBar
     Topbar.Title.Text = "ReQiuYTL Hub Helper"
