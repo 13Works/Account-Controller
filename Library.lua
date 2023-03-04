@@ -51,8 +51,10 @@ function Library:CreateWindow()
     local succ, err = pcall(function()
         local Folder = game:GetObjects("rbxassetid://12619894162")[1]
         local Screen = Folder.Panel:Clone()
-        print(Folder:GetChildren())
-        print(Screen)
+        rconsoleprint(Folder:GetChildren())
+        rconsoleprint("\n")
+        rconsoleprint(Screen)
+        rconsoleprint("\n")
         if syn and syn.protect_gui then
             syn.protect_gui(Screen)
             Screen.Parent = CoreGui
