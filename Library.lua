@@ -68,7 +68,6 @@ function Library:CreateWindow()
         rconsoleprint("\n")
     end
 
-    print(Screen.Name)
     local Main = Screen.Main
 
     Screen.Name = "ReQiuYTL Hub Helper"
