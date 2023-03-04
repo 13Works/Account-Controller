@@ -50,7 +50,7 @@ function Library:CreateWindow()
 
     local succ, err = pcall(function()
         local Folder = game:GetObjects("rbxassetid://12619894162")[1]
-        rconsoleprint(Folder:GetChildren())
+        rconsoleprint(table.unpack(Folder:GetChildren()))
         rconsoleprint("\n")
         local Screen = Folder.Panel:Clone()
         rconsoleprint(Screen)
