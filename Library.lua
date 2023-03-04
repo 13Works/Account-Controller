@@ -43,7 +43,7 @@ local function MakeDraggable(ClickObject, Object)
     end)
 end
 
-function Library:CreateWindow(Config, Parent)
+function Library:CreateWindow()
     local WindowInit = {}
     local Folder = game:GetObjects("rbxassetid://12619894162")[1]
     local Screen = Folder.Panel:Clone()
@@ -56,6 +56,8 @@ function Library:CreateWindow(Config, Parent)
         Screen.Parent = CoreGui
     end
     local Main = Screen.Main
+
+    Screen.Name = "ReQiuYTL Hub Helper"
 
     local Loading = Screen.Loading
     Loading.Text.Title.Text = "ReQiuYTL Hub Helper"
@@ -80,7 +82,7 @@ function Library:CreateWindow(Config, Parent)
     local TabList = Main.TabList
     local Elements = Main.Elements
 
-    MakeDraggable(TopBar, Main)
+    MakeDraggable(Topbar, Main)
 
     local itemTemplates = {}
     for _, item in ipairs(Elements.Template:GetChildren()) do
