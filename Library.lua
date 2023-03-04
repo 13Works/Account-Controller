@@ -80,6 +80,12 @@ function Library:CreateWindow()
     local TabList = Main.TabList
     local Elements = Main.Elements
 
+    for _, template in ipairs(Elements.Template:GetChildren()) do
+        if template:IsA("Frame") then
+            template.Visible = false
+        end
+    end
+
     MakeDraggable(Topbar, Main)
 
     function WindowInit:createTab(name, icon)
@@ -110,8 +116,6 @@ function Library:CreateWindow()
         end
         switchPage()
         pageButton.MouseButton1Click:Connect(switchPage)
-
-        Elements.Template.Visible = false
 
         function pageInIt:createButton(name, callback)
             local newItem = Elements.Template["Button"]:Clone()
