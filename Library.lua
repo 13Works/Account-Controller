@@ -112,7 +112,9 @@ function Library:CreateWindow()
         pageButton.MouseButton1Click:Connect(switchPage)
 
         for _, template in ipairs(Elements.Template:GetChildren()) do
-            template.Visible = false
+            if template:IsA("Frame") then
+                template.Visible = false
+            end
         end
 
         function pageInIt:createButton(name, callback)
