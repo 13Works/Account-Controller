@@ -95,11 +95,31 @@ function Library:CreateWindow()
         local newTab = TabList.Template:Clone()
         newTab.Name = name
         newTab.Title.Text = name
-        newTab.Image.Image = icon
+        newTab.Image.Image = icon or ""
         newTab.Parent = TabList
 
         local newPage = Elements.Template:Clone()
         newPage.Parent = Elements
+
+        local pageButton = newTab.Interact
+
+        local function switchPage()
+            for _, page in ipairs(Elements:GetChildren()) do
+                if page:IsA("Frame") then
+                    page.Visible = false
+                end
+            end
+            newPage.Visible = true
+        end
+
+        pageButton.MouseButton1Click:Connect(function()
+            for _, page in ipairs(Elements:GetChildren()) do
+                if page:IsA("Frame") then
+                    page.Visible = false
+                end
+            end
+            newPage.Visible = true
+        end)
 
         function pageInIt:createButton(name, callback)
             local newItem = itemTemplates["Button"]:Clone()
