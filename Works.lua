@@ -4,6 +4,8 @@ until game:IsLoaded()
 
 local Player = game.Players.LocalPlayer
 local Accounts = Player.UserId .. "Accounts" .. ".json"
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local HttpService = game:GetService("HttpService")
 
 Des = {}
 if makefolder then
