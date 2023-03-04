@@ -122,7 +122,7 @@ function Library:CreateWindow()
         pageButton.MouseButton1Click:Connect(switchPage)
 
         function pageInIt:createButton(name, callback)
-            local newItem = itemTemplates["Button"]:Clone()
+            local newItem = itemTemplates["Button"]
             newItem.Name = name
             newItem.Title.Text = name
             newItem.Parent = newPage
@@ -132,7 +132,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createDropdown(name, List, callback)
-            local newItem = itemTemplates["Dropdown"]:Clone()
+            local newItem = itemTemplates["Dropdown"]
 
             local function createListItem(item_name)
                 local ListItem = newItem.List.Template:Clone()
@@ -149,7 +149,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createInput(name, placeholder)
-            local newItem = itemTemplates["Input"]:Clone()
+            local newItem = itemTemplates["Input"]
             newItem.Name = name
             newItem.Title.Text = name
             newItem.InputFrame.TextBox.PlaceholderText = placeholder
@@ -159,7 +159,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createLabel(name, title)
-            local newItem = itemTemplates["Label"]:Clone()
+            local newItem = itemTemplates["Label"]
             newItem.Name = name
             newItem.Title.Text = title
             newItem.Parent = newPage
@@ -168,7 +168,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createParagraph(name, title, desc)
-            local newItem = itemTemplates["Paragraph"]:Clone()
+            local newItem = itemTemplates["Paragraph"]
             newItem.Name = name
             newItem.Title.Text = title
             newItem.Description.Text = desc
@@ -178,14 +178,14 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createSpacing()
-            local newItem = itemTemplates["SectionSpacing"]:Clone()
+            local newItem = itemTemplates["SectionSpacing"]
             newItem.Parent = newPage
             newItem.Visible = true
             return newItem
         end
 
         function pageInIt:createTitle(name)
-            local newItem = itemTemplates["SectionSpacing"]:Clone()
+            local newItem = itemTemplates["SectionSpacing"]
             newItem.Parent = newPage
             newItem.Name = name
             newItem.Title.Text = name
@@ -194,7 +194,7 @@ function Library:CreateWindow()
         end
 
         function pageInIt:createToggle(name, callback, toggle)
-            local newItem = itemTemplates["Toggle"]:Clone()
+            local newItem = itemTemplates["Toggle"]
             newItem.Parent = newPage
             newItem.Name = name
             newItem.Title.Text = name
