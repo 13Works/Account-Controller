@@ -71,11 +71,18 @@ pcall(function()
     ReplicatedStorage.API:FindFirstChild("DailyLoginAPI/ClaimDailyReward"):InvokeServer()
 end)
 
-if CoreGui:FindFirstChild("ReQiuYTL Hub Helper") then
-    CoreGui:FindFirstChild("ReQiuYTL Hub Helper"):Destroy()
+pcall(function()
+    game:GetService("CoreGui"):FindFirstChild("ReQiuYTL Hub Helper"):Destroy()
+end)
+
+local succ, err = pcall(function()
+
+    local Library = loadstring(game:HttpGet(
+        "https://raw.githubusercontent.com/13Works/Account-Controller/main/Library.lua"))()
+    local Window = Library:CreateWindow()
+
+end)
+
+if not succ then
+    print(err)
 end
-
-local Library =
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/13Works/Account-Controller/main/Library.lua"))()
-local Window = Library:CreateWindow()
-
