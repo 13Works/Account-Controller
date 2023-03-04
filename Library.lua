@@ -57,11 +57,6 @@ function Library:CreateWindow()
         Screen.Parent = CoreGui
     end
 
-    if not succ then
-        rconsoleprint(err)
-        rconsoleprint("\n")
-    end
-
     local Main = Screen.Main
 
     Screen.Name = "ReQiuYTL Hub Helper"
