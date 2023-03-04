@@ -107,19 +107,16 @@ function Library:CreateWindow()
             for _, page in ipairs(Elements:GetChildren()) do
                 if page:IsA("Frame") then
                     page.Visible = false
+                    rconsoleprint("Closed " .. newPage.Name .. " page")
+                    rconsoleprint("\n")
                 end
             end
             newPage.Visible = true
+            rconsoleprint("Switched to " .. newPage.Name .. " page")
+            rconsoleprint("\n")
         end
 
-        pageButton.MouseButton1Click:Connect(function()
-            for _, page in ipairs(Elements:GetChildren()) do
-                if page:IsA("Frame") then
-                    page.Visible = false
-                end
-            end
-            newPage.Visible = true
-        end)
+        pageButton.MouseButton1Click:Connect(switchPage)
 
         function pageInIt:createButton(name, callback)
             local newItem = itemTemplates["Button"]:Clone()
