@@ -80,6 +80,8 @@ function Library:CreateWindow()
     local TabList = Main.TabList
     local Elements = Main.Elements
 
+    TabList.Template.Visible = false
+
     for _, template in ipairs(Elements.Template:GetChildren()) do
         if template:IsA("Frame") then
             template.Visible = false
@@ -88,13 +90,14 @@ function Library:CreateWindow()
 
     MakeDraggable(Topbar, Main)
 
-    function WindowInit:createTab(name, icon)
+    function WindowInit:createTab(name, icon, switchTo)
         local pageInIt = {}
         local newTab = TabList.Template:Clone()
         newTab.Name = name
         newTab.Title.Text = name
         newTab.Image.Image = icon or ""
         newTab.Parent = TabList
+        newTab.Visible = true
 
         local newPage = Elements.Template:Clone()
         newPage.Parent = Elements
@@ -106,15 +109,17 @@ function Library:CreateWindow()
             for _, page in ipairs(Elements:GetChildren()) do
                 if page:IsA("ScrollingFrame") then
                     page.Visible = false
-                    rconsoleprint("Closed " .. newPage.Name .. " page")
-                    rconsoleprint("\n")
                 end
             end
             newPage.Visible = true
             rconsoleprint("Switched to " .. newPage.Name .. " page")
             rconsoleprint("\n")
         end
-        switchPage()
+
+        if switchTo then
+            switchPage()
+        end
+
         pageButton.MouseButton1Click:Connect(switchPage)
 
         function pageInIt:createButton(name, callback)
